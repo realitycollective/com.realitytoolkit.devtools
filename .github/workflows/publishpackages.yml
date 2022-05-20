@@ -15,7 +15,7 @@ concurrency:
 jobs:
   release-Package:
     name: Up Version package and release
-    if: github.ref == 'refs/heads/development'    
+    if: github.ref == 'refs/heads/main'    
     uses: realitycollective/reusableworkflows/.github/workflows/tagrelease.yml@main
     with:
       build-target: windows  
