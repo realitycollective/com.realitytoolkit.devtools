@@ -12,7 +12,7 @@ namespace RealityToolkit.DevTools.Editor
     [InitializeOnLoad]
     internal static class DevToolsPackageInstaller
     {
-        private static readonly string DefaultPath = $"{MixedRealityPreferences.ProfileGenerationPath}DevTools";
+        private static readonly string DefaultPath = $"{MixedRealityPreferences.ProfileGenerationPath}DeveloperTools";
         private static readonly string HiddenPath = Path.GetFullPath($"{PathFinderUtility.ResolvePath<IPathFinder>(typeof(DevToolsPathFinder)).ForwardSlashes()}{Path.DirectorySeparatorChar}{MixedRealityPreferences.HIDDEN_PACKAGE_ASSETS_PATH}");
 
         static DevToolsPackageInstaller()

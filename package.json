@@ -26,7 +26,8 @@
   },
   "dependencies": {
     "com.realitytoolkit.core": "1.0.0-preview.3",
-    "com.realitytoolkit.utilities": "1.0.0-preview.0"
+    "com.realitytoolkit.utilities": "1.0.0-preview.0",
+    "com.unity.textmeshpro": "2.1.6"
   },
   "assets": [
     {
