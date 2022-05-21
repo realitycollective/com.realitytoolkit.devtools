@@ -1,33 +1,23 @@
-# Reality Toolkit - devtools Platform Module
+# Reality Toolkit - Developer Tools
 
-The devtools platform components for the [Reality Toolkit](https://github.com/realitycollective/com.realitytoolkit.core). This package enables your Reality Toolkit based project to run on devtools devices.
+A collection of services, utilities and tools useful for developing immersive experiences using the [Reality Toolkit](https://github.com/realitycollective/com.realitytoolkit.core).
 
 ## What's included?
-<!-- Fill in list of what is included here -->
 
-tbc
+### Diagnostics Service
 
-## Supported Devices
-<!-- Fill in list of what devices or services are supported here -->
-
-- tbc
+The diagnostics service is useful for debugging your application on device. You can use it to show an in-game diagnostics window with application logs as well as memory and performance stats.
 
 ## Requirements
-<!-- Fill in list of requirements here -->
 
 - [RealityToolkit.Core](https://github.com/realitycollective/com.realitytoolkit.core)
-- [Unity 2020.3 and above](https://unity.com/)
-- tbc
+- [RealityToolkit.Utilities](https://github.com/realitycollective/com.realitytoolkit.utilities)
 
 ## Getting Started
-<!-- Update getting started docs here here -->
 
-tbc
-
-For more details, check the ["Getting Started" documentation](http://realitycollective.github.io/) for the Reality Toolkit (coming soon)
+After you installed the package and imported package assets to your project, add the services you wish to use to your root configuration profile.
 
 ### OpenUPM
-<!-- Check openUPM links and details -->
 
 [![openupm](https://img.shields.io/npm/v/com.realitytoolkit.devtools?label=openupm&registry_uri=https://package.openupm.com)](https://openupm.com/packages/com.realitytoolkit.devtools/)
 
