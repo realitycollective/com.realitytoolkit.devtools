@@ -3,7 +3,7 @@
 
 using System;
 using UnityEngine.EventSystems;
-using RealityToolkit.Extensions;
+using RealityCollective.Extensions;
 
 namespace RealityToolkit.DevTools.DiagnosticsService
 {
