@@ -1,8 +1,8 @@
 ﻿// Copyright (c) XRTK. All rights reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.﻿
 
+using RealityCollective.Editor.Extensions;
 using RealityToolkit.DevTools.DiagnosticsService;
-using RealityToolkit.Editor.Extensions;
 using RealityToolkit.Editor.Profiles;
 using UnityEditor;
 using UnityEngine;
