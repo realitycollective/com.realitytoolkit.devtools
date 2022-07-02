@@ -12,7 +12,7 @@ namespace RealityToolkit.DevTools.DiagnosticsService
     /// <summary>
     /// Configuration profile settings for setting up diagnostics.
     /// </summary>
-    [CreateAssetMenu(menuName = "Mixed Reality Toolkit/Diagnostics Service Profile", fileName = "DiagnosticsServiceProfile", order = (int)CreateProfileMenuItemIndices.Diagnostics)]
+    [CreateAssetMenu(menuName = "Reality Toolkit/Diagnostics Service Profile", fileName = "DiagnosticsServiceProfile", order = (int)CreateProfileMenuItemIndices.Diagnostics)]
     public class DiagnosticsServiceProfile : BaseMixedRealityServiceProfile<IDiagnosticsDataProvider>
     {
         [Prefab]

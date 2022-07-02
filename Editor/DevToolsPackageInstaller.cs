@@ -21,13 +21,13 @@ namespace RealityToolkit.DevTools.Editor
             EditorApplication.delayCall += CheckPackage;
         }
 
-        [MenuItem("Reality Toolkit/Packages/Install Deveveloper Tools Package Assets...", true)]
+        [MenuItem(MixedRealityPreferences.Editor_Menu_Keyword + "/Packages/Install Deveveloper Tools Package Assets...", true)]
         private static bool ImportPackageAssetsValidation()
         {
             return !Directory.Exists($"{DefaultPath}{Path.DirectorySeparatorChar}");
         }
 
-        [MenuItem("Reality Toolkit/Packages/Install Developer Tools Package Assets...")]
+        [MenuItem(MixedRealityPreferences.Editor_Menu_Keyword + "/Packages/Install Developer Tools Package Assets...")]
         private static void ImportPackageAssets()
         {
             EditorPreferences.Set($"{nameof(DevToolsPackageInstaller)}.Assets", false);

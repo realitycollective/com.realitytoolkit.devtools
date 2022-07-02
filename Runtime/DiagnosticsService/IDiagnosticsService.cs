@@ -8,7 +8,7 @@ using UnityEngine;
 namespace RealityToolkit.DevTools.DiagnosticsService
 {
     /// <summary>
-    /// The interface contract that defines the Diagnostics system in the Mixed Reality Toolkit
+    /// The interface contract that defines the Diagnostics system in the Reality Toolkit
     /// </summary>
     public interface IDiagnosticsService : IMixedRealitySystem
     {
