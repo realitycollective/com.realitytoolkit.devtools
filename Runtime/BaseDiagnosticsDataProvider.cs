@@ -3,7 +3,7 @@
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
 using RealityCollective.ServiceFramework.Definitions;
-using RealityCollective.ServiceFramework.Providers;
+using RealityCollective.ServiceFramework.Modules;
 
 namespace RealityToolkit.DevTools
 {
@@ -11,7 +11,7 @@ namespace RealityToolkit.DevTools
     /// Abstract base implementation for diagnostics data providers. Provides needed implementations to register and unregister
     /// diagnostics handlers.
     /// </summary>
-    public abstract class BaseDiagnosticsDataProvider : BaseServiceDataProvider, IDiagnosticsDataProvider
+    public abstract class BaseDiagnosticsDataProvider : BaseServiceModule, IDiagnosticsDataProvider
     {
         /// <inheritdoc />
         protected BaseDiagnosticsDataProvider(string name, uint priority, BaseProfile profile, IDiagnosticsService parentService)

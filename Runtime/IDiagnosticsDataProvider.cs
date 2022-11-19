@@ -6,5 +6,5 @@ using RealityCollective.ServiceFramework.Interfaces;
 
 namespace RealityToolkit.DevTools
 {
-    public interface IDiagnosticsDataProvider : IServiceDataProvider { }
+    public interface IDiagnosticsDataProvider : IServiceModule { }
 }
