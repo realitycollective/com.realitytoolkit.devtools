@@ -8,13 +8,13 @@ using RealityCollective.ServiceFramework.Modules;
 namespace RealityToolkit.DevTools
 {
     /// <summary>
-    /// Abstract base implementation for diagnostics data providers. Provides needed implementations to register and unregister
-    /// diagnostics handlers.
+    /// Abstract base implementation for <see cref="IDiagnosticsServiceModule"/>s.
+    /// Provides needed implementations to register and unregister diagnostics handlers.
     /// </summary>
-    public abstract class BaseDiagnosticsDataProvider : BaseServiceModule, IDiagnosticsDataProvider
+    public abstract class BaseDiagnosticsServiceModule : BaseServiceModule, IDiagnosticsServiceModule
     {
         /// <inheritdoc />
-        protected BaseDiagnosticsDataProvider(string name, uint priority, BaseProfile profile, IDiagnosticsService parentService)
+        protected BaseDiagnosticsServiceModule(string name, uint priority, BaseProfile profile, IDiagnosticsService parentService)
             : base(name, priority, profile, parentService)
         {
             DiagnosticsService = parentService;

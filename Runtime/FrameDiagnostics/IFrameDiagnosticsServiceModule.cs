@@ -3,7 +3,7 @@
 
 namespace RealityToolkit.DevTools.FrameDiagnostics
 {
-    public interface IFrameDiagnosticsDataProvider : IDiagnosticsDataProvider
+    public interface IFrameDiagnosticsServiceModule : IDiagnosticsServiceModule
     {
         /// <summary>
         /// The last computed GPU frame rate.

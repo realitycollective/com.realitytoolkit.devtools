@@ -10,10 +10,10 @@ namespace RealityToolkit.DevTools.MemoryDiagnostics
     /// Diagnostics data provider for memory diagnostics. E.g. provides information about used application memory.
     /// </summary>
     [System.Runtime.InteropServices.Guid("9F9C6912-DD68-4010-8B4A-B7B01B6AD77B")]
-    public class MemoryDiagnosticsDataProvider : BaseDiagnosticsDataProvider
+    public class MemoryDiagnosticsServiceModule : BaseDiagnosticsServiceModule
     {
         /// <inheritdoc />
-        public MemoryDiagnosticsDataProvider(string name, uint priority, BaseProfile profile, IDiagnosticsService parentService)
+        public MemoryDiagnosticsServiceModule(string name, uint priority, BaseProfile profile, IDiagnosticsService parentService)
             : base(name, priority, profile, parentService)
         {
         }
