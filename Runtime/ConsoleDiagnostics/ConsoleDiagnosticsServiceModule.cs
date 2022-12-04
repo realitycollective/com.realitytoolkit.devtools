@@ -7,7 +7,7 @@ using UnityEngine;
 namespace RealityToolkit.DevTools.ConsoleDiagnostics
 {
     /// <summary>
-    /// Console diagnostics data providers mirrors the Unity console and digests logs so the
+    /// Console diagnostics service module mirrors the Unity console and digests logs so the
     /// diagnostics system can work with it.
     /// </summary>
     [System.Runtime.InteropServices.Guid("06916F29-4640-475E-8BF6-313C6B831FCF")]
