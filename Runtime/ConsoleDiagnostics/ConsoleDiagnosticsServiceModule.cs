@@ -7,19 +7,17 @@ using UnityEngine;
 namespace RealityToolkit.DevTools.ConsoleDiagnostics
 {
     /// <summary>
-    /// Console diagnostics data providers mirrors the Unity console and digests logs so the
+    /// Console diagnostics service module mirrors the Unity console and digests logs so the
     /// diagnostics system can work with it.
     /// </summary>
     [System.Runtime.InteropServices.Guid("06916F29-4640-475E-8BF6-313C6B831FCF")]
-    public class ConsoleDiagnosticsDataProvider : BaseDiagnosticsDataProvider
+    public class ConsoleDiagnosticsServiceModule : BaseDiagnosticsServiceModule
     {
         /// <inheritdoc />
-        public ConsoleDiagnosticsDataProvider(string name, uint priority, BaseProfile profile, IDiagnosticsService parentService)
+        public ConsoleDiagnosticsServiceModule(string name, uint priority, BaseProfile profile, IDiagnosticsService parentService)
             : base(name, priority, profile, parentService)
         {
         }
-
-        #region IMixedRealityServce Implementation
 
         /// <inheritdoc />
         public override void Enable()
@@ -42,7 +40,5 @@ namespace RealityToolkit.DevTools.ConsoleDiagnostics
                 Application.logMessageReceived -= DiagnosticsService.RaiseLogReceived;
             }
         }
-
-        #endregion IMixedRealityServce Implementation
     }
 }

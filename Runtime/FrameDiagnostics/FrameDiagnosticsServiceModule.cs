@@ -8,14 +8,14 @@ using UnityEngine;
 namespace RealityToolkit.DevTools.FrameDiagnostics
 {
     /// <summary>
-    /// Diagnostics data provider for frame diagnostics. It provides frame rate information and missed frames
+    /// Diagnostics service module for frame diagnostics. It provides frame rate information and missed frames
     /// information to identify performance issues.
     /// </summary>
     [System.Runtime.InteropServices.Guid("1B5E5A67-864C-4A3D-A099-5A46EAD399A8")]
-    public class FrameDiagnosticsDataProvider : BaseDiagnosticsDataProvider, IFrameDiagnosticsDataProvider
+    public class FrameDiagnosticsServiceModule : BaseDiagnosticsServiceModule, IFrameDiagnosticsServiceModule
     {
         /// <inheritdoc />
-        public FrameDiagnosticsDataProvider(string name, uint priority, BaseProfile profile, IDiagnosticsService parentService)
+        public FrameDiagnosticsServiceModule(string name, uint priority, BaseProfile profile, IDiagnosticsService parentService)
             : base(name, priority, profile, parentService)
         {
         }

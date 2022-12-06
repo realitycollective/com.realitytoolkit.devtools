@@ -12,7 +12,7 @@ namespace RealityToolkit.DevTools
     /// <summary>
     /// Configuration profile settings for setting up diagnostics.
     /// </summary>
-    public class DiagnosticsServiceProfile : BaseServiceProfile<IDiagnosticsDataProvider>
+    public class DiagnosticsServiceProfile : BaseServiceProfile<IDiagnosticsServiceModule>
     {
         [Prefab]
         [SerializeField]
