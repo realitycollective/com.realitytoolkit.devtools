@@ -15,7 +15,7 @@ The diagnostics service is useful for debugging your application on device. You 
 
 ## Getting Started
 
-After you installed the package and imported package assets to your project, add the services you wish to use to your root configuration profile.
+After the package is installed and the package assets are imported to your project, you can add the services you wish to use into your root configuration profile.
 
 ### OpenUPM
 
@@ -23,17 +23,16 @@ After you installed the package and imported package assets to your project, add
 
 The simplest way to getting started using the devtools platform package in your project is via OpenUPM. Visit [OpenUPM](https://openupm.com/docs/) to learn more about it. Once you have the OpenUPM CLI set up use the following command to add the package to your project:
 
-```
-`openupm add com.realitytoolkit.devtools`
+```text
+    openupm add com.realitytoolkit.devtools
 ```
 
 > For more details on using [OpenUPM CLI, check the docs here](https://github.com/openupm/openupm-cli#installation).
 
-# Build Status
+## Build Status
 <!-- Check build status links and details -->
 
 | branch | build status |
 | --- | --- |
-| main | [![main](https://github.com/realitycollective/com.realitytoolkit.devtools/actions/workflows/buildupmpackages.yml/badge.svg?branch=main)](https://github.com/realitycollective/com.realitytoolkit.devtools/actions/workflows/buildupmpackages.yml) |
-| development | [![development](https://github.com/realitycollective/com.realitytoolkit.devtools/actions/workflows/buildupmpackages.yml/badge.svg?branch=development)](https://github.com/realitycollective/com.realitytoolkit.devtools/actions/workflows/buildupmpackages.yml) |
-
+| main | [![main](https://github.com/realitycollective/com.realitytoolkit.devtools/actions/workflows/main-publish.yml/badge.svg?branch=main)](https://github.com/realitycollective/com.realitytoolkit.devtools/actions/workflows/main-publish.yml) |
+| development | [![development](https://github.com/realitycollective/com.realitytoolkit.devtools/actions/workflows/development-buildandtestupmrelease.yml/badge.svg?branch=development)](https://github.com/realitycollective/com.realitytoolkit.devtools/actions/workflows/development-buildandtestupmrelease.yml)|
