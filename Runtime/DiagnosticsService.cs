@@ -5,11 +5,10 @@
 using RealityCollective.Definitions.Utilities;
 using RealityCollective.Extensions;
 using RealityCollective.ServiceFramework.Services;
-using RealityToolkit.CameraSystem.Interfaces;
+using RealityToolkit.CameraService.Interfaces;
 using RealityToolkit.DevTools.ConsoleDiagnostics;
 using RealityToolkit.DevTools.FrameDiagnostics;
 using RealityToolkit.DevTools.MemoryDiagnostics;
-using RealityToolkit.Utilities;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using Object = UnityEngine.Object;
@@ -46,9 +45,9 @@ namespace RealityToolkit.DevTools
             {
                 if (rigTransform == null)
                 {
-                    rigTransform = ServiceManager.Instance.TryGetService<IMixedRealityCameraSystem>(out var cameraSystem)
-                        ? cameraSystem.MainCameraRig.RigTransform
-                        : CameraCache.Main.transform.parent;
+                    rigTransform = ServiceManager.Instance.TryGetService<ICameraService>(out var cameraSystem)
+                        ? cameraSystem.CameraRig.RigTransform
+                        : Camera.main.transform.parent;
                 }
                 return rigTransform;
             }

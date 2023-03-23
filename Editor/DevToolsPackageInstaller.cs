@@ -3,8 +3,9 @@
 
 using RealityCollective.Editor.Utilities;
 using RealityCollective.Extensions;
+using RealityCollective.ServiceFramework.Editor;
+using RealityCollective.ServiceFramework.Editor.Packages;
 using RealityToolkit.Editor;
-using RealityToolkit.Editor.Utilities;
 using System.IO;
 using UnityEditor;
 
@@ -38,7 +39,7 @@ namespace RealityToolkit.DevTools.Editor
         {
             if (!EditorPreferences.Get($"{nameof(DevToolsPackageInstaller)}.Assets", false))
             {
-                EditorPreferences.Set($"{nameof(DevToolsPackageInstaller)}.Assets", PackageInstaller.TryInstallAssets(HiddenPath, DefaultPath));
+                EditorPreferences.Set($"{nameof(DevToolsPackageInstaller)}.Assets", AssetsInstaller.TryInstallAssets(HiddenPath, DefaultPath));
             }
         }
     }
