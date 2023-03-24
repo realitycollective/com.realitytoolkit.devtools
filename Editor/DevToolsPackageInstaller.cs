@@ -3,8 +3,9 @@
 
 using RealityCollective.Editor.Utilities;
 using RealityCollective.Extensions;
+using RealityCollective.ServiceFramework.Editor;
+using RealityCollective.ServiceFramework.Editor.Packages;
 using RealityToolkit.Editor;
-using RealityToolkit.Editor.Utilities;
 using System.IO;
 using UnityEditor;
 
@@ -13,8 +14,8 @@ namespace RealityToolkit.DevTools.Editor
     [InitializeOnLoad]
     internal static class DevToolsPackageInstaller
     {
-        private static readonly string DefaultPath = $"{MixedRealityPreferences.ProfileGenerationPath}DeveloperTools";
-        private static readonly string HiddenPath = Path.GetFullPath($"{PathFinderUtility.ResolvePath<IPathFinder>(typeof(DevToolsPathFinder)).ForwardSlashes()}{Path.DirectorySeparatorChar}{MixedRealityPreferences.HIDDEN_PACKAGE_ASSETS_PATH}");
+        private static readonly string destinationPath = $"{MixedRealityPreferences.ProfileGenerationPath}DeveloperTools";
+        private static readonly string sourcePath = Path.GetFullPath($"{PathFinderUtility.ResolvePath<IPathFinder>(typeof(DevToolsPackagePathFinder)).ForwardSlashes()}{Path.DirectorySeparatorChar}{MixedRealityPreferences.HIDDEN_PACKAGE_ASSETS_PATH}");
 
         static DevToolsPackageInstaller()
         {
@@ -24,7 +25,7 @@ namespace RealityToolkit.DevTools.Editor
         [MenuItem(MixedRealityPreferences.Editor_Menu_Keyword + "/Packages/Install Deveveloper Tools Package Assets...", true)]
         private static bool ImportPackageAssetsValidation()
         {
-            return !Directory.Exists($"{DefaultPath}{Path.DirectorySeparatorChar}");
+            return !Directory.Exists($"{destinationPath}{Path.DirectorySeparatorChar}");
         }
 
         [MenuItem(MixedRealityPreferences.Editor_Menu_Keyword + "/Packages/Install Developer Tools Package Assets...")]
@@ -38,7 +39,7 @@ namespace RealityToolkit.DevTools.Editor
         {
             if (!EditorPreferences.Get($"{nameof(DevToolsPackageInstaller)}.Assets", false))
             {
-                EditorPreferences.Set($"{nameof(DevToolsPackageInstaller)}.Assets", PackageInstaller.TryInstallAssets(HiddenPath, DefaultPath));
+                EditorPreferences.Set($"{nameof(DevToolsPackageInstaller)}.Assets", AssetsInstaller.TryInstallAssets(sourcePath, destinationPath));
             }
         }
     }

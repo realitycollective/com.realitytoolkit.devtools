@@ -1,15 +1,13 @@
 ﻿// Copyright (c) Reality Collective. All rights reserved.
-// Copyright (c) XRTK. All rights reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
 using RealityCollective.Definitions.Utilities;
 using RealityCollective.Extensions;
 using RealityCollective.ServiceFramework.Services;
-using RealityToolkit.CameraSystem.Interfaces;
+using RealityToolkit.CameraService.Interfaces;
 using RealityToolkit.DevTools.ConsoleDiagnostics;
 using RealityToolkit.DevTools.FrameDiagnostics;
 using RealityToolkit.DevTools.MemoryDiagnostics;
-using RealityToolkit.Utilities;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using Object = UnityEngine.Object;
@@ -17,7 +15,7 @@ using Object = UnityEngine.Object;
 namespace RealityToolkit.DevTools
 {
     /// <summary>
-    /// The default implementation of the <see cref="IMixedRealityDiagnosticsSystem"/>
+    /// The default implementation of the <see cref="IDiagnosticsService"/>
     /// </summary>
     [System.Runtime.InteropServices.Guid("2044B5AE-8F50-4B66-B508-D8087356C140")]
     public class DiagnosticsService : BaseEventService, IDiagnosticsService
@@ -46,9 +44,9 @@ namespace RealityToolkit.DevTools
             {
                 if (rigTransform == null)
                 {
-                    rigTransform = ServiceManager.Instance.TryGetService<IMixedRealityCameraSystem>(out var cameraSystem)
-                        ? cameraSystem.MainCameraRig.RigTransform
-                        : CameraCache.Main.transform.parent;
+                    rigTransform = ServiceManager.Instance.TryGetService<ICameraService>(out var cameraSystem)
+                        ? cameraSystem.CameraRig.RigTransform
+                        : Camera.main.transform.parent;
                 }
                 return rigTransform;
             }
