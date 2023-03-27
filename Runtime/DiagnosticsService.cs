@@ -3,6 +3,8 @@
 
 using RealityCollective.Definitions.Utilities;
 using RealityCollective.Extensions;
+using RealityCollective.ServiceFramework.Attributes;
+using RealityCollective.ServiceFramework.Definitions.Platforms;
 using RealityCollective.ServiceFramework.Services;
 using RealityToolkit.CameraService.Interfaces;
 using RealityToolkit.DevTools.ConsoleDiagnostics;
@@ -17,6 +19,7 @@ namespace RealityToolkit.DevTools
     /// <summary>
     /// The default implementation of the <see cref="IDiagnosticsService"/>
     /// </summary>
+    [RuntimePlatform(typeof(AllPlatforms))]
     [System.Runtime.InteropServices.Guid("2044B5AE-8F50-4B66-B508-D8087356C140")]
     public class DiagnosticsService : BaseEventService, IDiagnosticsService
     {
