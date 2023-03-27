@@ -1,7 +1,9 @@
 ﻿// Copyright (c) XRTK. All rights reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
+using RealityCollective.ServiceFramework.Attributes;
 using RealityCollective.ServiceFramework.Definitions;
+using RealityCollective.ServiceFramework.Definitions.Platforms;
 using System.Diagnostics;
 using UnityEngine;
 
@@ -11,6 +13,7 @@ namespace RealityToolkit.DevTools.FrameDiagnostics
     /// Diagnostics service module for frame diagnostics. It provides frame rate information and missed frames
     /// information to identify performance issues.
     /// </summary>
+    [RuntimePlatform(typeof(AllPlatforms))]
     [System.Runtime.InteropServices.Guid("1B5E5A67-864C-4A3D-A099-5A46EAD399A8")]
     public class FrameDiagnosticsServiceModule : BaseDiagnosticsServiceModule, IFrameDiagnosticsServiceModule
     {
