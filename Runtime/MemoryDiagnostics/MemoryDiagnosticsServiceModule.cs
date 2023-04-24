@@ -1,4 +1,4 @@
-﻿// Copyright (c) XRTK. All rights reserved.
+﻿// Copyright (c) Reality Collective. All rights reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
 using RealityCollective.ServiceFramework.Attributes;
@@ -25,7 +25,7 @@ namespace RealityToolkit.DevTools.MemoryDiagnostics
         private ulong peakMemoryUsage;
         private ulong lastMemoryLimit;
 
-        #region IMixedRealityService Implementation
+        #region IService Implementation
 
         /// <inheritdoc />
         public override void LateUpdate()
@@ -58,6 +58,6 @@ namespace RealityToolkit.DevTools.MemoryDiagnostics
             }
         }
 
-        #endregion IMixedRealityService Implementation
+        #endregion IService Implementation
     }
 }

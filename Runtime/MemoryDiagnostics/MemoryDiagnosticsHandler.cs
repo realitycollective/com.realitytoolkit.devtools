@@ -1,4 +1,4 @@
-﻿// Copyright (c) XRTK. All rights reserved.
+﻿// Copyright (c) Reality Collective. All rights reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
 using RealityToolkit.DevTools.Extensions;
@@ -54,7 +54,7 @@ namespace RealityToolkit.DevTools.MemoryDiagnostics
             usedMemorySlider.wholeNumbers = true;
         }
 
-        #region IMixedRealityMemoryDiagnosticsHandler Implementation
+        #region IMemoryDiagnosticsHandler Implementation
 
         /// <inheritdoc />
         public void OnMemoryUsageChanged(MemoryEventData eventData)
@@ -96,7 +96,7 @@ namespace RealityToolkit.DevTools.MemoryDiagnostics
             }
         }
 
-        #endregion IMixedRealityMemoryDiagnosticsHandler Implementation
+        #endregion IMemoryDiagnosticsHandler Implementation
 
         private string MemoryToString(string prefixString, ulong memory)
         {

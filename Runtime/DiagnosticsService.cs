@@ -55,7 +55,7 @@ namespace RealityToolkit.DevTools
             }
         }
 
-        #region IMixedRealityService Implementation
+        #region IService Implementation
 
         /// <inheritdoc />
         public override void Initialize()
@@ -117,9 +117,9 @@ namespace RealityToolkit.DevTools
             }
         }
 
-        #endregion IMixedRealityService Implementation
+        #endregion IService Implementation
 
-        #region IMixedRealityDiagnosticsSystem Implementation
+        #region IDiagnosticsSystem Implementation
 
         private Transform diagnosticsRoot = null;
 
@@ -269,6 +269,6 @@ namespace RealityToolkit.DevTools
 
         #endregion Memory Events
 
-        #endregion IMixedRealityDiagnosticsSystem Implementation
+        #endregion IDiagnosticsSystem Implementation
     }
 }
