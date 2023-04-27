@@ -1,4 +1,4 @@
-﻿// Copyright (c) XRTK. All rights reserved.
+﻿// Copyright (c) Reality Collective. All rights reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
 using UnityEngine.EventSystems;
@@ -11,17 +11,17 @@ namespace RealityToolkit.DevTools.MemoryDiagnostics
     public class MemoryEventData : BaseDiagnosticsEventData
     {
         /// <summary>
-        /// The peak memory usage as reported from the <see cref="IMixedRealityDiagnosticsDataProvider"/>
+        /// The peak memory usage as reported from the <see cref="IDiagnosticsDataProvider"/>
         /// </summary>
         public MemoryPeak MemoryPeak { get; private set; } = default;
 
         /// <summary>
-        /// The current memory limit as reported from the <see cref="IMixedRealityDiagnosticsDataProvider"/>
+        /// The current memory limit as reported from the <see cref="IDiagnosticsDataProvider"/>
         /// </summary>
         public MemoryLimit CurrentMemoryLimit { get; private set; } = default;
 
         /// <summary>
-        /// The current memory usage as reported from the <see cref="IMixedRealityDiagnosticsDataProvider"/>
+        /// The current memory usage as reported from the <see cref="IDiagnosticsDataProvider"/>
         /// </summary>
         public MemoryUsage CurrentMemoryUsage { get; private set; } = default;
 

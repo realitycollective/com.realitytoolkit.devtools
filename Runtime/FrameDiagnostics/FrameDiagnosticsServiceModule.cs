@@ -1,4 +1,4 @@
-﻿// Copyright (c) XRTK. All rights reserved.
+﻿// Copyright (c) Reality Collective. All rights reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
 using RealityCollective.ServiceFramework.Attributes;
@@ -71,7 +71,7 @@ namespace RealityToolkit.DevTools.FrameDiagnostics
             }
         }
 
-        #region IMixedRealityService Implementation
+        #region IService Implementation
 
         /// <inheritdoc />
         public override void Enable()
@@ -148,7 +148,7 @@ namespace RealityToolkit.DevTools.FrameDiagnostics
             }
         }
 
-        #endregion IMixedRealityService Implementation
+        #endregion IService Implementation
 
         private void AverageFrameTiming(out float cpuFrameTime, out float gpuFrameTime)
         {
