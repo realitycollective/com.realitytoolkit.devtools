@@ -6,7 +6,7 @@ using RealityCollective.Extensions;
 using RealityCollective.ServiceFramework.Attributes;
 using RealityCollective.ServiceFramework.Definitions.Platforms;
 using RealityCollective.ServiceFramework.Services;
-using RealityToolkit.CameraService.Interfaces;
+using RealityToolkit.PlayerService.Interfaces;
 using RealityToolkit.DevTools.ConsoleDiagnostics;
 using RealityToolkit.DevTools.FrameDiagnostics;
 using RealityToolkit.DevTools.MemoryDiagnostics;
@@ -47,7 +47,7 @@ namespace RealityToolkit.DevTools
             {
                 if (rigTransform == null)
                 {
-                    rigTransform = ServiceManager.Instance.TryGetService<ICameraService>(out var cameraSystem)
+                    rigTransform = ServiceManager.Instance.TryGetService<IPlayerService>(out var cameraSystem)
                         ? cameraSystem.CameraRig.RigTransform
                         : Camera.main.transform.parent;
                 }
