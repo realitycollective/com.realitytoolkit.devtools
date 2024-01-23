@@ -55,7 +55,7 @@ namespace RealityToolkit.DevTools.Editor
                 return false;
             }
 
-            if (!ServiceManager.Instance.TryGetServiceProfile<IDiagnosticsService, DiagnosticsServiceProfile>(out var cameraServiceProfile))
+            if (!ServiceManager.Instance.TryGetServiceProfile<IDiagnosticsService, DiagnosticsServiceProfile>(out var PlayerServiceProfile))
             {
                 UnityEngine.Debug.LogWarning($"Could not install {serviceConfiguration.InstancedType.Type.Name}.{nameof(DiagnosticsServiceProfile)} not found.");
                 return false;
@@ -65,14 +65,14 @@ namespace RealityToolkit.DevTools.Editor
             var typedServiceConfiguration = new ServiceConfiguration<IDiagnosticsServiceModule>(serviceConfiguration.InstancedType.Type, serviceConfiguration.Name, serviceConfiguration.Priority, serviceConfiguration.RuntimePlatforms, serviceConfiguration.Profile);
 
             // Make sure it's not already in the target profile.
-            if (cameraServiceProfile.ServiceConfigurations.All(sc => sc.InstancedType.Type != serviceConfiguration.InstancedType.Type))
+            if (PlayerServiceProfile.ServiceConfigurations.All(sc => sc.InstancedType.Type != serviceConfiguration.InstancedType.Type))
             {
-                cameraServiceProfile.AddConfiguration(typedServiceConfiguration);
-                UnityEngine.Debug.Log($"Successfully installed the {serviceConfiguration.InstancedType.Type.Name} to {cameraServiceProfile.name}.");
+                PlayerServiceProfile.AddConfiguration(typedServiceConfiguration);
+                UnityEngine.Debug.Log($"Successfully installed the {serviceConfiguration.InstancedType.Type.Name} to {PlayerServiceProfile.name}.");
             }
             else
             {
-                UnityEngine.Debug.Log($"Skipped installing the {serviceConfiguration.InstancedType.Type.Name} to {cameraServiceProfile.name}. Already installed.");
+                UnityEngine.Debug.Log($"Skipped installing the {serviceConfiguration.InstancedType.Type.Name} to {PlayerServiceProfile.name}. Already installed.");
             }
 
             return true;
