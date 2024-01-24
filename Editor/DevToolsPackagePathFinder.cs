@@ -7,12 +7,12 @@ using UnityEngine;
 namespace RealityToolkit.DevTools.Editor
 {
     /// <summary>
-    /// Dummy scriptable object used to find the relative path of the platform package.
+    /// Dummy scriptable object used to find the relative path of the package.
     /// </summary>
     /// <inheritdoc cref="IPathFinder" />
-    public class DevToolsPathFinder : ScriptableObject, IPathFinder
+    public class DevToolsPackagePathFinder : ScriptableObject, IPathFinder
     {
         /// <inheritdoc />
-        public string Location => $"/Editor/{nameof(DevToolsPathFinder)}.cs";
+        public string Location => $"/Editor/{nameof(DevToolsPackagePathFinder)}.cs";
     }
 }

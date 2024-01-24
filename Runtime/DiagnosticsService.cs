@@ -1,11 +1,12 @@
 ﻿// Copyright (c) Reality Collective. All rights reserved.
-// Copyright (c) XRTK. All rights reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
 using RealityCollective.Definitions.Utilities;
 using RealityCollective.Extensions;
+using RealityCollective.ServiceFramework.Attributes;
+using RealityCollective.ServiceFramework.Definitions.Platforms;
 using RealityCollective.ServiceFramework.Services;
-using RealityToolkit.CameraService.Interfaces;
+using RealityToolkit.PlayerService.Interfaces;
 using RealityToolkit.DevTools.ConsoleDiagnostics;
 using RealityToolkit.DevTools.FrameDiagnostics;
 using RealityToolkit.DevTools.MemoryDiagnostics;
@@ -16,8 +17,9 @@ using Object = UnityEngine.Object;
 namespace RealityToolkit.DevTools
 {
     /// <summary>
-    /// The default implementation of the <see cref="IMixedRealityDiagnosticsSystem"/>
+    /// The default implementation of the <see cref="IDiagnosticsService"/>
     /// </summary>
+    [RuntimePlatform(typeof(AllPlatforms))]
     [System.Runtime.InteropServices.Guid("2044B5AE-8F50-4B66-B508-D8087356C140")]
     public class DiagnosticsService : BaseEventService, IDiagnosticsService
     {
@@ -45,15 +47,15 @@ namespace RealityToolkit.DevTools
             {
                 if (rigTransform == null)
                 {
-                    rigTransform = ServiceManager.Instance.TryGetService<ICameraService>(out var cameraSystem)
-                        ? cameraSystem.CameraRig.RigTransform
+                    rigTransform = ServiceManager.Instance.TryGetService<IPlayerService>(out var playerService)
+                        ? playerService.PlayerRig.RigTransform
                         : Camera.main.transform.parent;
                 }
                 return rigTransform;
             }
         }
 
-        #region IMixedRealityService Implementation
+        #region IService Implementation
 
         /// <inheritdoc />
         public override void Initialize()
@@ -115,9 +117,9 @@ namespace RealityToolkit.DevTools
             }
         }
 
-        #endregion IMixedRealityService Implementation
+        #endregion IService Implementation
 
-        #region IMixedRealityDiagnosticsSystem Implementation
+        #region IDiagnosticsSystem Implementation
 
         private Transform diagnosticsRoot = null;
 
@@ -267,6 +269,6 @@ namespace RealityToolkit.DevTools
 
         #endregion Memory Events
 
-        #endregion IMixedRealityDiagnosticsSystem Implementation
+        #endregion IDiagnosticsSystem Implementation
     }
 }
