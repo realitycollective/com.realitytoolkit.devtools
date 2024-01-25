@@ -1,0 +1,165 @@
+﻿// Copyright (c) Reality Collective. All rights reserved.
+// Licensed under the MIT License. See LICENSE in the project root for license information.
+
+using RealityToolkit.DevTools.Extensions;
+using TMPro;
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace RealityToolkit.DevTools.MemoryDiagnostics
+{
+    public class MemoryDiagnosticsHandler : MonoBehaviour, IMemoryDiagnosticsHandler
+    {
+        private const string UsedMemoryPrefix = "Used: ";
+        private const string PeakMemoryPrefix = "Peak: ";
+        private const string LimitMemoryPrefix = "Limit: ";
+        private const int MaxStringLength = 32;
+
+        private readonly char[] stringBuffer = new char[MaxStringLength];
+
+        [Range(0, 3)]
+        [SerializeField]
+        [Tooltip("How many decimal places to display on numeric strings.")]
+        private int displayedDecimalDigits = 1;
+
+        [SerializeField]
+        [Tooltip("The text component used to display the memory usage info.")]
+        private TextMeshProUGUI memoryUsedText = null;
+
+        [SerializeField]
+        [Tooltip("The text component used to display the memory peak info.")]
+        private TextMeshProUGUI memoryPeakText = null;
+
+        [SerializeField]
+        [Tooltip("The text component used to display the memory limit info.")]
+        private TextMeshProUGUI memoryLimitText = null;
+
+        [SerializeField]
+        [Tooltip("Slider visualizing peak memory.")]
+        private Slider peakMemorySlider = null;
+
+        [SerializeField]
+        [Tooltip("Slider visualizing used memory.")]
+        private Slider usedMemorySlider = null;
+
+        private ulong lastMemoryUsage;
+        private ulong lastMemoryLimit;
+        private ulong lastMemoryPeak;
+
+        private void Awake()
+        {
+            peakMemorySlider.minValue = 0;
+            peakMemorySlider.wholeNumbers = true;
+            usedMemorySlider.minValue = 0;
+            usedMemorySlider.wholeNumbers = true;
+        }
+
+        #region IMemoryDiagnosticsHandler Implementation
+
+        /// <inheritdoc />
+        public void OnMemoryUsageChanged(MemoryEventData eventData)
+        {
+            ulong currentMemoryUsage = eventData.CurrentMemoryUsage;
+
+            if (WillDisplayedMemoryDiffer(lastMemoryUsage, currentMemoryUsage, displayedDecimalDigits))
+            {
+                memoryUsedText.text = MemoryToString(UsedMemoryPrefix, currentMemoryUsage);
+                usedMemorySlider.value = currentMemoryUsage.ToMegabytes();
+                lastMemoryUsage = currentMemoryUsage;
+            }
+        }
+
+        /// <inheritdoc />
+        public void OnMemoryLimitChanged(MemoryEventData eventData)
+        {
+            ulong currentMemoryLimit = eventData.CurrentMemoryLimit;
+
+            if (WillDisplayedMemoryDiffer(lastMemoryLimit, currentMemoryLimit, displayedDecimalDigits))
+            {
+                memoryLimitText.text = MemoryToString(LimitMemoryPrefix, currentMemoryLimit);
+                peakMemorySlider.maxValue = currentMemoryLimit.ToMegabytes();
+                usedMemorySlider.maxValue = peakMemorySlider.maxValue;
+                lastMemoryLimit = currentMemoryLimit;
+            }
+        }
+
+        /// <inheritdoc />
+        public void OnMemoryPeakChanged(MemoryEventData eventData)
+        {
+            ulong currentMemoryPeak = eventData.MemoryPeak;
+
+            if (WillDisplayedMemoryDiffer(lastMemoryPeak, currentMemoryPeak, displayedDecimalDigits))
+            {
+                memoryPeakText.text = MemoryToString(PeakMemoryPrefix, currentMemoryPeak);
+                peakMemorySlider.value = currentMemoryPeak.ToMegabytes();
+                lastMemoryPeak = currentMemoryPeak;
+            }
+        }
+
+        #endregion IMemoryDiagnosticsHandler Implementation
+
+        private string MemoryToString(string prefixString, ulong memory)
+        {
+            var bufferIndex = 0;
+            // Using a custom number to string method to avoid the overhead,
+            // and allocations, of built in string.Format/StringBuilder methods.
+            // We can also make some assumptions since the domain of the input number (memoryUsage) is known.
+            var memoryUsageMb = memory.ToMegabytes();
+            var memoryUsageIntegerDigits = (int)memoryUsageMb;
+            var memoryUsageFractionalDigits = (int)((memoryUsageMb - memoryUsageIntegerDigits) * Mathf.Pow(10.0f, displayedDecimalDigits));
+
+            for (int i = 0; i < prefixString.Length; ++i)
+            {
+                stringBuffer[bufferIndex++] = prefixString[i];
+            }
+
+            bufferIndex = MemoryItoA(memoryUsageIntegerDigits, stringBuffer, bufferIndex);
+            stringBuffer[bufferIndex++] = '.';
+
+            if (memoryUsageFractionalDigits != 0)
+            {
+                bufferIndex = MemoryItoA(memoryUsageFractionalDigits, stringBuffer, bufferIndex);
+            }
+            else
+            {
+                for (int i = 0; i < displayedDecimalDigits; ++i)
+                {
+                    stringBuffer[bufferIndex++] = '0';
+                }
+            }
+
+            stringBuffer[bufferIndex++] = 'M';
+            stringBuffer[bufferIndex++] = 'B';
+
+            return new string(stringBuffer, 0, bufferIndex);
+        }
+
+        private static int MemoryItoA(int value, char[] stringBuffer, int bufferIndex)
+        {
+            int startIndex = bufferIndex;
+
+            for (; value != 0; value /= 10)
+            {
+                stringBuffer[bufferIndex++] = (char)((char)(value % 10) + '0');
+            }
+
+            for (int endIndex = bufferIndex - 1; startIndex < endIndex; ++startIndex, --endIndex)
+            {
+                var temp = stringBuffer[startIndex];
+                stringBuffer[startIndex] = stringBuffer[endIndex];
+                stringBuffer[endIndex] = temp;
+            }
+
+            return bufferIndex;
+        }
+
+        private static bool WillDisplayedMemoryDiffer(ulong oldUsage, ulong newUsage, int displayedDecimalDigits)
+        {
+            var oldUsageMBs = oldUsage.ToMegabytes();
+            var newUsageMBs = newUsage.ToMegabytes();
+            var decimalPower = Mathf.Pow(10.0f, displayedDecimalDigits);
+
+            return (int)(oldUsageMBs * decimalPower) != (int)(newUsageMBs * decimalPower);
+        }
+    }
+}
