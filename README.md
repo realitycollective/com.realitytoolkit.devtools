@@ -1,38 +1,36 @@
 # Reality Toolkit - Developer Tools
 
-A collection of services, utilities and tools useful for developing immersive experiences using the [Reality Toolkit](https://github.com/realitycollective/com.realitytoolkit.core).
+![com.realitytoolkit.devtools](https://github.com/realitycollective/realitycollective.logo/blob/main/RealityToolkit/RepoBanners/com.realitytoolkit.devtools.png?raw=true)
 
-## What's included?
+A collection of services, utilities and tools useful for developing immersive experiences using the [Reality Toolkit](https://www.realitytoolkit.io/).
 
-### Diagnostics Service
+[![openupm](https://img.shields.io/npm/v/com.realitytoolkit.devtools?label=openupm&registry_uri=https://package.openupm.com)](https://openupm.com/packages/com.realitytoolkit.devtools/) [![Discord](https://img.shields.io/discord/597064584980987924.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)](https://discord.gg/hF7TtRCFmB)
+[![Publish main branch and increment version](https://github.com/realitycollective/com.realitytoolkit.devtools/actions/workflows/main-publish.yml/badge.svg)](https://github.com/realitycollective/com.realitytoolkit.devtools/actions/workflows/main-publish.yml)
+[![Publish development branch on Merge](https://github.com/realitycollective/com.realitytoolkit.devtools/actions/workflows/development-publish.yml/badge.svg)](https://github.com/realitycollective/com.realitytoolkit.devtools/actions/workflows/development-publish.yml)
+[![Build and test UPM packages for platforms, all branches except main](https://github.com/realitycollective/com.realitytoolkit.devtools/actions/workflows/development-buildandtestupmrelease.yml/badge.svg)](https://github.com/realitycollective/com.realitytoolkit.devtools/actions/workflows/development-buildandtestupmrelease.yml)
 
-The diagnostics service is useful for debugging your application on device. You can use it to show an in-game diagnostics window with application logs as well as memory and performance stats.
+## Installation
 
-## Requirements
+Make sure to always use the same source for all toolkit modules. Avoid using different installation sources within the same project. We provide the following ways to install Reality Toolkit modules:
 
-- [RealityToolkit.Core](https://github.com/realitycollective/com.realitytoolkit.core)
-- [RealityToolkit.Utilities](https://github.com/realitycollective/com.realitytoolkit.utilities)
+### Method 1: Using Package Manager for git users
 
-## Getting Started
+1. Open the Package Manager using the Window menu -> Package Manager
 
-After the package is installed and the package assets are imported to your project, you can add the services you wish to use into your root configuration profile.
+2. Inside the Package Manager, click on the "+" button on the top left and select "Add package from git URL..."
 
-### OpenUPM
+3. Input the following URL: https://github.com/realitycollective/com.realitytoolkit.devtools.git and click "Add".
 
-[![openupm](https://img.shields.io/npm/v/com.realitytoolkit.devtools?label=openupm&registry_uri=https://package.openupm.com)](https://openupm.com/packages/com.realitytoolkit.devtools/)
-
-The simplest way to getting started using the devtools platform package in your project is via OpenUPM. Visit [OpenUPM](https://openupm.com/docs/) to learn more about it. Once you have the OpenUPM CLI set up use the following command to add the package to your project:
+### Method 2: OpenUPM
 
 ```text
     openupm add com.realitytoolkit.devtools
 ```
 
-> For more details on using [OpenUPM CLI, check the docs here](https://github.com/openupm/openupm-cli#installation).
+### Method 3: Unity Asset Store
 
-## Build Status
-<!-- Check build status links and details -->
+This option will be available soon.
 
-| branch | build status |
-| --- | --- |
-| main | [![main](https://github.com/realitycollective/com.realitytoolkit.devtools/actions/workflows/main-publish.yml/badge.svg?branch=main)](https://github.com/realitycollective/com.realitytoolkit.devtools/actions/workflows/main-publish.yml) |
-| development | [![development](https://github.com/realitycollective/com.realitytoolkit.devtools/actions/workflows/development-buildandtestupmrelease.yml/badge.svg?branch=development)](https://github.com/realitycollective/com.realitytoolkit.devtools/actions/workflows/development-buildandtestupmrelease.yml)|
+## Getting Started
+
+Check the ["Getting Started"](https://www.realitytoolkit.io/) documentation for the Reality Toolkit and to learn more about this module.
