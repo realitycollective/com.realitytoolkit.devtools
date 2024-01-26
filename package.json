@@ -26,6 +26,7 @@
   },
   "dependencies": {
     "com.realitytoolkit.core": "1.0.0-pre.37",
+    "com.realitytoolkit.player": "1.0.3-pre.1",
     "com.unity.ugui": "1.0.0"
   },
   "assets": [
