@@ -1,14 +1,3 @@
 # Changelog
 
-All notable changes to this project will be documented in this file.
-
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
-
-## [1.0.0] - 2024-01-25
-
-Initial package release.
-
-## [1.0.0-pre.1] - 2022-05-20
-
-Initial package preview release.
+Please refer to the package's [Releases GitHub Page](https://github.com/realitycollective/com.realitytoolkit.devtools/releases) for the changelog.
