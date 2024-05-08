@@ -33,7 +33,8 @@
   "dependencies": {
     "com.realitytoolkit.core": "1.0.0-pre.48",
     "com.realitytoolkit.player": "1.0.4",
-    "com.unity.ugui": "1.0.0"
+    "com.unity.ugui": "1.0.0",
+    "com.unity.textmeshpro": "3.0.8"
   },
   "assets": [
     {
