@@ -21,27 +21,5 @@ namespace RealityToolkit.DevTools.ConsoleDiagnostics
             : base(name, priority, profile, parentService)
         {
         }
-
-        /// <inheritdoc />
-        public override void Enable()
-        {
-            base.Enable();
-
-            if (DiagnosticsService != null)
-            {
-                Application.logMessageReceived += DiagnosticsService.RaiseLogReceived;
-            }
-        }
-
-        /// <inheritdoc />
-        public override void Disable()
-        {
-            base.Disable();
-
-            if (DiagnosticsService != null)
-            {
-                Application.logMessageReceived -= DiagnosticsService.RaiseLogReceived;
-            }
-        }
     }
 }

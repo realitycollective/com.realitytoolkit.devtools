@@ -74,16 +74,6 @@ namespace RealityToolkit.DevTools.FrameDiagnostics
         #region IService Implementation
 
         /// <inheritdoc />
-        public override void Enable()
-        {
-            base.Enable();
-
-            if (!Application.isPlaying) { return; }
-
-            stopwatch.Restart();
-        }
-
-        /// <inheritdoc />
         public override void LateUpdate()
         {
             base.LateUpdate();

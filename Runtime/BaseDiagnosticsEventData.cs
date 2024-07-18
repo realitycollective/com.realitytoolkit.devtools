@@ -3,7 +3,7 @@
 
 using System;
 using UnityEngine.EventSystems;
-using RealityCollective.Extensions;
+using RealityCollective.Utilities.Extensions;
 
 namespace RealityToolkit.DevTools
 {
