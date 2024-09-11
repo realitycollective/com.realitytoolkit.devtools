@@ -2,8 +2,8 @@
   "name": "com.realitytoolkit.devtools",
   "displayName": "RealityToolkit.DevTools",
   "description": "A collection of services, utilities and tools useful for developing immersive experiences using the Reality Toolkit.",
-  "version": "1.0.3",
-  "documentationUrl": "https://realitytoolkit.io",
+  "version": "1.0.3-pre.1",
+  "documentationUrl": "https://realitytoolkit.realitycollective.net/",
   "changelogUrl": "https://github.com/realitycollective/com.realitytoolkit.devtools/releases",
   "licensesUrl": "https://github.com/realitycollective/com.realitytoolkit.devtools/blob/main/LICENSE.md",
   "keywords": [
@@ -13,7 +13,7 @@
     "Mixed Reality"
   ],
   "unity": "2022.3",
-  "homepage": "https://realitytoolkit.io",
+  "homepage": "https://realitytoolkit.realitycollective.net/",
   "bugs": {
     "url": "https://github.com/realitycollective/com.realitytoolkit.devtools/issues"
   },
