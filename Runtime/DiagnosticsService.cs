@@ -1,15 +1,15 @@
 ﻿// Copyright (c) Reality Collective. All rights reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
-using RealityCollective.Definitions.Utilities;
-using RealityCollective.Extensions;
 using RealityCollective.ServiceFramework.Attributes;
 using RealityCollective.ServiceFramework.Definitions.Platforms;
+using RealityCollective.ServiceFramework.Definitions.Utilities;
 using RealityCollective.ServiceFramework.Services;
+using RealityCollective.Utilities.Extensions;
 using RealityToolkit.DevTools.ConsoleDiagnostics;
 using RealityToolkit.DevTools.FrameDiagnostics;
 using RealityToolkit.DevTools.MemoryDiagnostics;
-using RealityToolkit.Player.Interfaces;
+using RealityToolkit.Player;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using Object = UnityEngine.Object;
@@ -71,17 +71,6 @@ namespace RealityToolkit.DevTools
             frameEventData = new FrameEventData(currentEventSystem);
             consoleEventData = new ConsoleEventData(currentEventSystem);
             memoryEventData = new MemoryEventData(currentEventSystem);
-        }
-
-        /// <inheritdoc />
-        public override void Enable()
-        {
-            base.Enable();
-
-            if (!Application.isPlaying)
-            {
-                return;
-            }
 
             if (profile.ShowDiagnosticsWindowOnStart == AutoStartBehavior.AutoStart)
             {
@@ -90,23 +79,12 @@ namespace RealityToolkit.DevTools
         }
 
         /// <inheritdoc />
-        public override void Disable()
+        public override void Destroy()
         {
-            base.Disable();
-
-            if (!Application.isPlaying) { return; }
-
-            if (diagnosticsWindow != null)
+            if (diagnosticsWindow.IsNotNull())
             {
                 Unregister(diagnosticsWindow);
             }
-
-        }
-
-        /// <inheritdoc />
-        public override void Destroy()
-        {
-            base.Destroy();
 
             diagnosticsWindow.Destroy();
 
@@ -166,7 +144,10 @@ namespace RealityToolkit.DevTools
             get => DiagnosticsWindow.activeInHierarchy && isWindowEnabled;
             set
             {
-                if (isWindowEnabled == value) { return; }
+                if (isWindowEnabled == value)
+                {
+                    return;
+                }
 
                 isWindowEnabled = value;
                 DiagnosticsWindow.SetActive(isWindowEnabled);
