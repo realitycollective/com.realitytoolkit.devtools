@@ -23,10 +23,8 @@ namespace RealityToolkit.DevTools.ConsoleDiagnostics
         }
 
         /// <inheritdoc />
-        public override void Enable()
+        public override void Start()
         {
-            base.Enable();
-
             if (DiagnosticsService != null)
             {
                 Application.logMessageReceived += DiagnosticsService.RaiseLogReceived;
@@ -34,10 +32,8 @@ namespace RealityToolkit.DevTools.ConsoleDiagnostics
         }
 
         /// <inheritdoc />
-        public override void Disable()
+        public override void Destroy()
         {
-            base.Disable();
-
             if (DiagnosticsService != null)
             {
                 Application.logMessageReceived -= DiagnosticsService.RaiseLogReceived;
