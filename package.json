@@ -2,7 +2,7 @@
   "name": "com.realitytoolkit.devtools",
   "displayName": "RealityToolkit.DevTools",
   "description": "A collection of services, utilities and tools useful for developing immersive experiences using the Reality Toolkit.",
-  "version": "1.0.3-pre.1",
+  "version": "1.0.3-pre.2",
   "documentationUrl": "https://realitytoolkit.realitycollective.net/",
   "changelogUrl": "https://github.com/realitycollective/com.realitytoolkit.devtools/releases",
   "licensesUrl": "https://github.com/realitycollective/com.realitytoolkit.devtools/blob/main/LICENSE.md",
